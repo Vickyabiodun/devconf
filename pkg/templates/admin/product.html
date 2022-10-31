@@ -1,0 +1,42 @@
+{%extends 'admin/adminlayout.html'%}
+
+        {%block header%}
+        <p>Conference Product/Items<p>
+        {%endblock%}
+      
+        {%block content%}
+        <a href="{{url_for('new_product')}}" class="btn btn-primary">Click here to add new Product</a>
+        <table class="table table-primary table-hover">
+            <tr>
+            <th>S/N</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Action</th>
+            </tr>
+            {%if all_products%}
+            {%for p in products%}
+    
+            <tr>
+                
+                <td>{{loop.index}}</td>
+                <td>{{p.product_name}}</td>
+                <td>{{p.product_price}}</td>
+                <td>Edit | Delete</td>
+    
+                
+            </tr>
+            {%endfor%}
+            {%else%}
+            <tr>
+                
+                <td colspan="4">No Product Found</td>
+                
+    
+                
+            </tr>
+            {%endif %}
+    
+          </table>
+        {%endblock%}
+      
+    

@@ -1,0 +1,11 @@
+<product version="covid-19 special">
+  <store>
+    <opebi>24</opebi>
+    <lekki>56</lekki>
+  </store>
+  <prodname desc="An all-day perfume for all fashionista">
+    Moringha Perfume Spray
+  </prodname>
+  <price>21000</price>
+</product>
+

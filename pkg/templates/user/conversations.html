@@ -1,0 +1,45 @@
+{%extends 'user/layout.html'%}
+
+        {%block header%}
+        <p>Conversations<p>
+        {%endblock%}
+      
+        {%block content%}
+        <div class="container-fluid" style="background-color:black">
+           <button class="btn btn-danger"><a href="/makepost" style="color:white !important">Start a Conversation</a></button> 
+            {%if all_post%}
+
+            {%for p in all_post%}
+   
+            
+                <div class="row">
+                    <div class="col" style="color:whitesmoke">
+                        <h5 ><a href="/theconversations/{{p.post_id}}">{{p.post_title}}</a> </h5>
+                        
+                    </div>
+                </div>
+                {%endfor%}
+
+            {%else%}
+            <div class="row">
+                <div class="col">
+                    <div class="alert alert-warning">
+                        No post has been made yet.
+                        <a href="/makepost">Start a Conversation</a>
+                    </p>
+                </div>
+            </div>
+        {%endif%}
+
+        </div>
+          
+        {%endblock%}
+      
+    
+
+
+
+
+
+
+

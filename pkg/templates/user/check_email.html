@@ -1,0 +1,22 @@
+{%extends 'user/layout.html'%}
+
+     {% block content%}
+     <div>
+        <label>Enter Email:</label>
+        <input type="text" id="email" name="email">
+        <button type="submit">Submit</button>
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+     </div>
+     
+     {% endblock content%}
+    
+  
+      {%block customjs%}
+        <script type="text/javascript">
+            $(document)
+        </script>
+      {%endblock%}
+   
+
+

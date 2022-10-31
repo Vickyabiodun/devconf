@@ -1,0 +1,44 @@
+{%extends 'admin/adminlayout.html'%}
+
+        {%block header%}
+            Registered User
+        {%endblock%}
+      
+      
+        {%block content%}
+        <table class="table table-primary table-hover">
+            <tr>
+            <th>S/N</th>
+            <th>Full Name</th>
+            <th>Phone</th>
+            <th>State</th>
+
+            <th>Email</th>
+
+            <th>Action</th>
+
+            {{statedeets.theusers[0].user_phone}}
+            </tr>
+            {%if regs%}
+                {%for user in regs%}
+        
+                <tr>
+                    
+                    <td>{{user.user_id}}</td>
+                    <td>{{user.user_fname}}{{user.user_lname}}</td>
+                    <td>{{user.user_phone}}</td>
+                    <td>{{user.mystate.state_name}}</td>
+
+                    <td>{{user.user_email}}</td>
+                    <td> <a href="/admin/userdetails/{{user.user_id}}"> Details</a> | <a href="/admin/deleteuser/{{user.user_id}}" onclick="return confirm('Are you sure you want to delete this user?')"> Delete User</a> </td>
+        
+                    
+                </tr>
+                {%endfor%}
+          
+            {%endif%}
+            
+        {%endblock%}
+      
+    
+

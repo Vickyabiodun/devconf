@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href = "bootstrap/css/bootstrap.css" rel = "stylesheet" type = "text/css">
+   <link href = "fontawesome/css/all.css" rel = "stylesheet" type = "text/css">
+   <title>Moat DevFest 2022</title>
+   <style type="text/css">
+      body{
+         font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+         color:white;
+      }
+      a{
+         text-decoration: none;
+         color: #a6754b;
+         display: inline-block;
+         font-size: 1.2rem;
+      }
+
+      a:hover{
+         color:#EEB30D;
+      }
+
+      #content{
+         background-color: #a6754b;
+         background-image:url("imgs/image4.jpg");
+         background-repeat: no-repeat;
+         background-size: cover;
+         min-height:500px;
+         text-align:center;
+         font-weight: bold;
+      }
+
+      #innercontentdiv{
+         position: absolute;
+         left:400px;
+         background-color:#210F04;
+         box-shadow:inset 6px 6px 6px black, inset -8px -8px 8px black;
+         font-weight:lighter;
+      }
+      #content h1{
+         font-size:4rem
+      }
+      .hotelroom{
+         box-shadow: 5px 5px 8px aliceblue;
+      }
+   </style>
+</head>
+<body>
+   <div class = "container-fluid">
+      <div class = "row mb-2" style = "height:120px" >
+         <div class = "col-md-3 mt-2"  id="header">
+            <img src = "imgs/logo2.png" height="120px" >
+         </div>
+         <div class = "col-md-9 mt-5" style="text-align: end;" id="header">
+            <a href = "#" class="me-3">Create Profile</a>
+            <a href = "user_login.html" class="me-3">Login</a>
+            <a href = "#">Donate</a>
+         </div>
+      </div>
+      <div class="row position-relative mb-5">
+         <div class="col-md-12 position-relative" id="content">
+            <img src="imgs/image6.png" class="mb-0">
+            <h1 style="font-family:'Courier New', Courier, monospace;">MOAT DEV FEST 2022</h1>
+            <p style="font-size:1rem;">Organized by Python Developers Class Cohort 22</p>
+            <div class="col-md-4" id="innercontentdiv">
+               <p class="p-3" >Introducing the largest Developer's Conference across sub-Sahara Africa! A full-stack, tech-obsessed conference full of fun, code-loving humans who share and learn together.</p>
+               <p>October 28th, 2022</p>
+               <p class="p-2">Lagos,Nigeria</p>
+               <button class="col-md-9 mb-2 btn" style="background-color:#EEB30D;""><a href="user_login.html" style="color: #210F04; display: inline;
+                  font-size: 1rem;">Make a free account and register to attend the conference<i class="fa-solid fa-arrow-right ms-1"></i></a>
+               </button>
+            </div>
+         </div>
+
+      </div>
+      
+      <div class="row mt-5 text-center">
+         <div class="col-md" style="color:#210F04;" >
+            <h1  style="font-size:2rem" >Accomodation Available</h1>
+            
+            <p>We provide luxurious affordable hotel rooms for accomodation for our guests during the conference.</p>
+            <a href="#">See more <i class="fa-solid fa-arrow-right"></i></a>
+         </div> 
+      </div>
+      <div id = "third" class="row mt-2">
+         <div class="col-md hotelroom">
+            {% if rsp and rsp['status']==1%}
+            {% for r in rsp['data']%}
+
+            
+         </div>
+         <div class="col-md-2 hotelroom">
+            <a href ="#"><img src= "{{r['pimage']}}" alt = "hotelroom" width = "100%" height = "80%"></a>
+            <p style="color:black">{{r['price']}}</p>
+         </div>
+         
+         {%endfor%}
+         {%else%}
+         <div class="col-md-2 hotelroom">
+            The server is Down. Please try next time
+         </div>
+         {%endif%}
+      </div>
+      <div class="row mt-3 text-center py-5" >
+         <div class="col-md" style="color:#210F04; font-weight: bold;" >
+            <img src="imgs/image7.png" >
+            <p>Moat Dev Fest is a full-stack, tech-obsessed conference full of fun, code-loving humans who share and learn together. With over 30,000 people directly and in-directly impacted since it's inception in Lagos, Nigeria by the Python Developers of Cohort 22 Moat Academy, Moat DevFest 2022 promises to be bigger, better and is going to feature physical, in-person audiences.</p>
+            <a href="http://moatacademy.com">More about Moat Academy <i class="fa-solid fa-arrow-right"></i></a>
+         </div> 
+      </div>
+      
+      <div class="row">
+         <div class="col-md-12 py-5 bg-dark">
+            <p class="m-0 text-center text-white">Copyright &copy; Python Developers Cohort 22</p>
+          </div>
+      </div>
+      </div>
+   </div>
+</body>
+</html>

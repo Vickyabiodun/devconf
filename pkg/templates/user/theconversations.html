@@ -1,0 +1,121 @@
+{%extends 'user/layout.html'%}
+
+        {%block header%}
+        <p>Conversations<p>
+        {%endblock%}
+      
+        {%block content%}
+        <div class="container-fluid" style="background-color:black">
+            {%if all_post%}
+
+   
+            
+                <div class="row">
+                    <div class="col" style="color:whitesmoke" >
+                        <h5 >{{all_post.post_title}}</h5>
+
+                        <p>{{all_post.post_content}}</p>
+                        <p>
+                            <i>Posted By:</i><span>{{all_post.postrel.user_fname}}{{all_post.postrel.user_lname}}</span>
+                            <i>Date:</i><span>{{all_post.post_date}}</span>
+                            <i>({{all_post.comments| count()}} Comments)</i>
+                        </p>
+                        <p>
+                            comments: 
+
+                        </p>
+                        
+                    </div>
+                </div>
+                <div>
+                    <div id="allcomment">
+                    <h4>All Comments</h4>
+                            {%if comments%}
+                                {%for c in comment%}
+                                <p>{{c.comment_content}}</p>
+
+                                <p>
+                                    
+                                    <i>Posted By:</i><span>{{c.commentby.user_fname}}{{c.commentby.user_lname}}</span>
+                                    <i>Date:</i><span>{{c.comment_date}}</span>
+                                    <i>({{c.comments| count()}} Comments)</i>
+                                </p>
+                                {%endfor%}
+                                {%endif%}
+                    </div>
+                        <form action="" id="myform" method="post" >
+                            <textarea name="comment"  id="comment" ></textarea>
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                            <button class="btn btn-success" type='button' id="commentbtn"><a href="#" style="color:white !important">Post Comment</a></button> 
+                            <button class="btn btn-success"><a href="/conversation" style="color:white !important">Go back to Posts</a></button> 
+                
+                        </form>
+                        </div>
+                        
+
+        
+        
+        
+                </div>
+            {%else%}
+            <div class="row">
+                <div class="col">
+                    <div class="alert alert-warning">
+                        No post has been made yet.
+                        <a href="/makepost">Start a Conversation</a>
+                    </p>
+                </div>
+            </div>
+        {%endif%}
+        
+        
+        {%endblock%}
+      
+        {% block customjs %}
+        <script type="text/javascript">
+            $("document").ready(function(){
+                $('#allcomments').hide()
+
+                $('#allcommentsbtn').click(function(){
+                    if($("#allcomments").hide()){
+                        $("#Allcomments").show()
+                    }
+                })
+                $('#commentbtn').click(function(){
+                    var data2send =$('#myform').serialize()
+                    $.ajax({
+                        url:"/theconversations/{{all_post.post_id}}",
+                        data:data2send,
+                        type:"post",
+                        dataType:"json",
+                        beforeSend:function(){
+                            $('#commentbtn').html('please wait')
+                        }, 
+                        success:function(response){
+                            $('#allcomment').append(response["comment"])
+                            $("#commentbtn").val('')
+                            $("#commentbtn").html('send comment')
+
+                        },
+                            
+
+                    
+                        error:function(errmsg){
+                            console.log(errmsg)
+                            $("#commentbtn").html('send comment')
+
+                        }
+                    })
+                })
+            })
+
+        </script>
+        {%endblock%}
+
+
+
+
+
+
+

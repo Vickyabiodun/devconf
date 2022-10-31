@@ -1,0 +1,52 @@
+{%extends 'admin/adminlayout.html'%}
+
+        {%block header%}
+        <p>Conference Product/Items<p>
+        {%endblock%}
+      
+        {%block content%}
+        <form class="#">
+        <table class="table table-primary table-hover">
+            <tr>
+            <th>S/N</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Action</th>
+            </tr>
+            {%if confirm%}
+            {% for i in confirm%}
+    
+            <tr>
+                
+                <td>{{loop.index}}</td>
+                <td>{{i.productdeets.product_name}}</td>
+                <td>{{i.productdeets.product_price}}</td>
+                <td>Edit | Delete</td>
+    
+                
+            </tr>
+            {%endfor%}
+            {%else%}
+            <tr>
+                
+                <td colspan="4">No Product Found</td>
+                
+    
+                
+            </tr>
+            {%endif %}
+    
+          </table>
+          <button type="submit" class="btn btn-danger">Yes, I'm in</button>
+          </form>
+
+        {%endblock%}
+      
+    
+
+
+
+
+
+
+

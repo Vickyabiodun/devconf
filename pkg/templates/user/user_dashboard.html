@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/user_dashboard.css">
+    <link href='static/bootstrap/boxicons.min.css' rel='stylesheet'>
+    <link href='static/fontawesome/css/all.css' rel='stylesheet'>
+   </head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details ">
+      <a href="#"><img src="imgs/logo2.png"  alt="event logo" class="img-fluid" width="200" height="90"></a>
+    </div>
+      <ul class="nav-links">
+        <li>
+          <a href="user_dashboard.html" class="active">
+            <i class="fa-solid fa-house"></i>
+            <span class="links_name">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="active">
+            <i class="fa-solid fa-table-columns"></i>
+            <span class="links_name">My Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{url_for('store')}}">
+            <i class="fas fa-comment-dots"></i>
+            <span class="links_name">Visit a Store</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="links_name">Purchase Products</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{url_for('update_profile')}}">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <span class="links_name">Update Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-comment-dots"></i>
+            <span class="links_name">Start A Conversation</span>
+          </a>
+        </li>
+        <li class="log_out">
+          <a href="{{url_for('logout')}}">
+            <i class="fa-solid fa-check"></i>
+            <span class="links_name">Log out</span>
+          </a>
+        </li>
+      </ul>
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class="fa-solid fa-bars"></i>
+        <span class="dashboard">Username</span>
+      </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search...">
+      </div>
+      <div class="profile-details">
+        
+        <span class="admin_name">User</span>
+        {%if first.user_image != None%}
+          <img src="/static/upload/{{first.user_image}}">
+        {%else%}
+        <i class="fa-solid fa-user"></i>
+        {%endif%}
+      </div>
+    </nav>
+
+    <div class="home-content">
+      
+      <div class="mb-3">
+        <h1 class="me-5 mb-5" style="font-size: 4rem;">Welcome, {{first}}!</h1>
+        
+      </div>
+      <div>
+        <button class="col-md-9" style="background-color:#EEB30D;"><a href="user_login.html" style="color: #210F04; text-decoration: none;font-size: 1rem; padding:15%;margin-top:10%;" >Register to attend Moat DEV FEST 2022<i class="fa-solid fa-arrow-right ms-1"></i></a>
+        </button>
+      </div>
+      
+    </div>
+  </section>
+  <script type='text/javascript' src='js/jquery-3.6.1.min.js'></script>
+  <script>
+    
+ 
+  </script>  
+
+</body>
+</html>
+

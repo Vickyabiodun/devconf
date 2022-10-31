@@ -1,0 +1,27 @@
+{%extends 'admin/adminlayout.html'%}
+{%set m = get_flashed_messages()%}
+        {%block header%}
+        New Product
+        {%endblock%}
+      
+      
+        {%block content%}
+        {%if m%}
+            {%for message in m%}
+                <div class="alert alert-success">{{message}}</div>
+            {%endfor%}
+        {%endif%}
+        <form method="post" >
+            {{frm.item_name.label }}
+
+            {{frm.item_name }}
+
+            {{frm.item_price.label}}
+            {{frm.csrf_token}} 
+            {{frm.item_price}}
+            {{frm.submit (class_='btn-primary btn btn-lg')}}
+
+        </form>
+        {%endblock%}
+      
+    

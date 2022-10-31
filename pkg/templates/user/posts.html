@@ -1,0 +1,47 @@
+{%extends 'user/layout.html'%}
+        {%block header%}
+        Posts        
+        {%endblock%}
+      
+      
+        {%block content%}
+        
+        <form method="post" action="/makepost">
+            <div class="row mb-lg-3">
+
+                <div class="col-lg-6">
+                    {{postform.title.label}}
+
+                    {{postform.title }}
+
+                </div>
+            
+            </div>
+            <div class="row mb-lg-3">
+                <div class="col-lg-6">
+                    {{postform.content.label}}
+                    {{postform.csrf_token}} 
+                    {{postform.content}}
+
+                </div>
+            
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    {{postform.post (class_='btn-primary btn ')}}
+
+
+                </div>
+            </div>
+        </form>
+        <script type="text/javascript">
+            var ptitle = document.getElementById('title').value
+            var pcontent = document.getElementById('content').value
+            if (ptitle ='' || pcontent=''){
+                alert('please complete the form');e.preventDefault()
+            }
+            
+        </script>
+        {%endblock%}
+      
+    

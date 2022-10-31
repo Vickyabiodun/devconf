@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dev Conference - Admin Login</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!--This is my facebook meta tag-->
+    <meta property="og:site_name" content="">
+    <meta property="og:type" content="web application">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+
+    <!--This is my twitter meta tag-->
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+     
+    <!--bootstrap-->    
+
+	<link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <!--fontawesome-->    
+
+	<link href='/static/fontawesome/css/all.css' rel='stylesheet'>
+  <!--CSS lINK-->
+  <link rel="stylesheet" href="/static/admin_login.css">
+
+    <style type="text/css">
+       
+    </style>
+
+</head>
+<body>
+  <!--logo navigation bar-->
+    <div class="container-fluid firstdiv">
+      <div class="overlay">
+        
+        <div class="row major">
+
+          <div class="col-lg-6">
+            <div id="logodiv">
+             <a href="home.html"> <img src="/static/image/logo.png"  alt="event logo" class="img-fluid"></a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <h2>Admin Login</h2>
+            
+              <form action="" method="post" class="justify-content-center">
+        
+                <div >
+                  <input type="text" placeholder="Username" name="username" class="col-lg-10 mb-lg-3 ms-lg-3 ">
+                <div>
+                <div>
+                  <input type="password" placeholder="password" name="password" class="col-lg-10 mb-lg-3 ms-lg-3">
+                </div>
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+                <div class="">
+                  <button type="submit" class=" btn col-lg-10 ms-lg-3">Sign Up</button>
+                </div>
+                <a href="#"><p class="mb-lg-5">Forgot Username/Password?</p></a>
+            </form> 
+          </div>
+
+          <a href="#"><p class="mt-lg-2" id="create"> Create your Account</p></a>
+
+        </div>
+     
+
+
+
+
+      </div>
+    
+    </div>
+    <script type='text/javascript' src='js/jquery-3.6.1.min.js'></script>
+    <script type='text/javascript'>
+      
+		
+	</script>
+
+</body>
+
+
+</html>

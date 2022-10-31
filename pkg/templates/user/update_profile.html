@@ -1,0 +1,84 @@
+{% extends "user/layout.html"%}
+{% block header%}
+   Update Profile     
+{% endblock %}
+{% block content %}
+
+<form action="{{url_for('update_profile')}}" method="post" class="justify-content-center" enctype="multipart/form-data">
+   <input type="file" name="pic">
+
+   <div >
+      <label>First Name</label>
+     <input type="text" placeholder="First Name" name="fname" class="col-lg-10 mb-lg-3 ms-lg-3 " >
+   <div>
+   <div>
+      <label>Last Name</label>
+     <input type="text" placeholder="Last Name" name="lname" class="col-lg-10 mb-lg-3 ms-lg-3">
+   </div>
+   <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+   <div  class="row" >
+      <label >State</label>
+      <select class="form-control border-warning col-8 " name="state" id="state">
+         {%if states%}
+            {%for i in states%}
+               <option value="{{i.state_id}}">{{i.state_name}}</option>
+            {%endfor%}
+
+         {%endif%}
+
+     </select>
+   </div>
+   <div class="row mb-3">
+      <label class="col">LGA</label>
+
+      <div class="col-10"> 
+         <select class="form-control border-warning col-8 " id="lgas">
+            
+   
+        </select>
+      </div>
+        
+          
+   </div>
+  <div>
+      <label>Phone Number</label>
+     <input type="text" placeholder="phone" name="phone" class="col-lg-10 mb-lg-3 ms-lg-3 ">
+     <div>
+  <div>
+   <div class="">
+     <button type="submit" class=" btn btn-primary col-lg-10 ms-lg-3 mb-lg-3">Update</button>
+   </div>
+   
+
+</form> 
+{% endblock %}
+{% block customjs%}
+   <script type="text/javascript">
+
+      $(document).ready(function(){
+
+         $('#state').change(function(){
+
+            var state_selected = $(this).val()
+            var data2send ={'stateid':state_selected}
+            $.ajax({
+            url:"{{url_for('getlga')}}",
+            type:"get",
+            data:data2send,
+            dataType:'text',
+            success:function(msg){
+            $('#lgas').html(msg)
+            },
+            error:function(err){
+               console.log(err)
+               
+            }
+      })
+         })
+         
+      })
+      
+
+   </script>     
+{% endblock %}

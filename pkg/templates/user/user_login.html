@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dev Conference - Admin Login</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!--This is my facebook meta tag-->
+    <meta property="og:site_name" content="">
+    <meta property="og:type" content="web application">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+
+    <!--This is my twitter meta tag-->
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+     
+    <!--bootstrap-->    
+
+	<link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <!--fontawesome-->    
+
+	<link href='/static/fontawesome/css/all.css' rel='stylesheet'>
+  <!--Google font-->
+
+    <style type="text/css">
+       
+       .firstdiv{
+          background-image:url("imgs/bg.jpg");
+          min-height: 1000px;
+          background-size:cover;
+          background-repeat: no-repeat;
+          background-position: center;
+
+
+       }
+
+       .overlay{
+        background-color: rgba(2,20,40,0.7);
+        min-height: 1000px;
+        display: relative;
+
+       }
+       .major{
+        min-height: 300px;
+        width: 850px;
+        position: absolute;
+        top:25%;
+        left:17%;
+        background-color: white;
+        display:flex;
+       }
+       #logodiv{
+        height: 300px;
+        width: 300px;
+        border:1px solid #EEB20E;
+        border-radius: 50%;
+        position: absolute;
+        top:20%;
+        left: 5%;
+
+
+       }
+       h2{
+        margin-top: 35%;
+        margin-bottom: 8%;
+        margin-right:10%;
+        font-weight:bold;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-align:center;
+
+       }
+       input{
+        background-color: beige;
+        min-height: 40px;
+        border-radius :25px;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+       }
+       input::placeholder{
+        padding:10px
+       }
+       button{
+        border-radius :25px;
+
+       }
+
+       .btn{
+        background-color: #EEB30D;
+        color:#210F04;
+        font-weight:bold;
+       }
+       
+       a{
+        color:#a6754b;
+        text-align: center;
+        text-decoration: none;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+       }
+
+       a:hover{
+         color:#EEB30D;
+      }
+
+       #create{
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+       }
+    </style>
+
+</head>
+<body>
+  <!--logo navigation bar-->
+    <div class="container-fluid firstdiv">
+      <div class="overlay">
+        
+        <div class="row major">
+
+          <div class="col-lg-6">
+            <div id="logodiv">
+              <a href="home.html">
+              <img src="/static/imgs/logo.png"  alt="event logo" class="img-fluid">
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <h2>Login To Your Account</h2>
+            
+              <form action="" method="post" class="justify-content-center">
+        
+                <div >
+                  <input type="text" placeholder="Username" name="username" class="col-lg-10 mb-lg-3 ms-lg-3 ">
+                <div>
+                <div>
+                  <input type="password" placeholder="Password" name="password" class="col-lg-10 mb-lg-3 ms-lg-3">
+                  <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+                </div>
+                <div class="">
+                  <button type="submit" class=" btn col-lg-10 ms-lg-3 mb-lg-3">Login</button>
+                </div>
+                <a href="#"><p class="mb-lg-5">Forgot Username/Password?</p></a>
+            </form> 
+          </div>
+
+          <a href="{{url_for('user_signup')}}"><p class="mt-lg-2" id="create">Don't have an account? Create an Account</p></a>
+
+        </div>
+     
+
+
+
+
+      </div>
+    
+    </div>
+    <script type='text/javascript' src='js/jquery-3.6.1.min.js'></script>
+    <script type='text/javascript'>
+      
+		
+	</script>
+
+</body>
+
+
+</html>

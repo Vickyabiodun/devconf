@@ -1,0 +1,44 @@
+{%extends 'user/layout.html'%}
+        {% block header%}
+        Store 
+        {% endblock %}
+      
+     {% block content%}
+     <form method="post" action="{{url_for('paystack')}}">
+      <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+     <table class="table table-primary table-hover">
+         <tr>
+         <th>Option</th>
+         <th>Product Name</th>
+         <th>Product Price</th>
+         <th>Action</th>
+         </tr>
+         {%if user_products%}
+         {%for p in user_products%}
+
+         <tr>
+            
+            <td><input type="checkbox" value="{{p.product_id}}" name="productid"></td>
+            <td>{{p.product_name}}</td>
+            <td>{{p.product_price}}</td>
+            <td>Edit | Delete</td>
+
+            
+         </tr>
+         {%endfor%}
+         {%else%}
+         <tr>
+            
+            <td colspan="4">No Product Found</td>
+            
+
+            
+         </tr>
+         {%endif %}
+
+    </table>
+    <button type="submit" class="btn btn-danger">Buy</button>
+   </form>
+     {% endblock%}
+    
